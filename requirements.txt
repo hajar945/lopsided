@@ -1,11 +1,13 @@
-# Pinned dependencies for the Lopsided stroke-asymmetry study.
-# Versions pinned for reproducibility (CS judges can clone and get the same results).
-
-nibabel==5.2.1
-huggingface_hub==0.25.2
-pyarrow==17.0.0
-pandas==2.2.2
-numpy==1.26.4
-matplotlib==3.9.2
-scipy==1.13.1
-scikit-learn==1.5.2
+# Printed by add-on cell A (Colab, Python 3.13.16)
+nibabel==5.4.2
+pyarrow==23.0.1
+pandas==2.2.3
+numpy==2.1.3
+scipy==1.16.3
+scikit-learn==1.6.1
+xgboost==3.4.1
+shap==0.54.1
+torch==2.11.0
+matplotlib==3.10.0
+tqdm==4.67.3
+psutil==5.9.5
