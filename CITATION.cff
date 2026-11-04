@@ -1,1 +1,10 @@
-
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Lopsided: how much labelled data does a deep network need before it beats a simple model for stroke-lesion mapping from CT perfusion?"
+type: software
+authors:
+  - given-names: "Hajar Wilkes"
+repository-code: "https://github.com/hajar945/lopsided"
+license: MIT
+date-released: "2026-10-31"
+# After Zenodo issues a DOI, add:  doi: "10.5281/zenodo.XXXXXXX"
