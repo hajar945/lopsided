@@ -16,19 +16,25 @@ Every number a reader could ask about, where it came from, how strong it is, and
 | 10 | Sensitivity 0.39 / precision 0.22 (interpretable); other models in README | Cell H | DESCRIPTIVE, derived; precision omits patients with no prediction | "finds about 4 in 10 lesion voxels" | any interval or significance |
 | 11 | Subgroups by sex, age, severity | Cell I | EXPLORATORY check; no intervals; confounded by lesion size | "no sign of a sex gap; age and severity track lesion size" | any fairness claim |
 | 12 | Predicted volume does not forecast recovery (rho 0.00; AUC 0.658 vs 0.660) | Cell 13b | EXPLORATORY, labelled | "no relation found" | "our model predicts recovery" |
-| 13 | Resolution shift: drops 0.039 / 0.033 / 0.011 | Cell 10 | DESCRIPTIVE, confounded by half the training data | "weak stand-in" | "robust" or "hospital shift" |
+| 13 | Resolution shift: drops 0.039 (xgb) / 0.033 (mirror U-Net) / 0.011 (single threshold) | Cell 10 | DESCRIPTIVE, confounded by half the training data | "weak stand-in" | "robust" or "hospital shift" |
 | 14 | Simple model trains 4.6x faster (CPU vs T4); predicts slower | Cell 8 | DESCRIPTIVE; different hardware | "different hardware" | "cheaper at everything" |
-| 15 | Tmax>6 s region 157 mL vs 32 mL final lesion | Cell 4 | DESCRIPTIVE | "marks tissue at risk; much was saved" | "the rule is wrong" |
-| 16 | Four named patients (0012, 0145, 0066, 0095) | demo notebook, fold 0 | ILLUSTRATIVE. Picked by rule among the 30 fold-0 patients, not at random: best Dice (0095); median Dice (0012); worst miss among larger lesions (0066); smallest lesion (0145). 0012 sits at the fold-0 median, so its low Dice (0.13) is close to the middle of that fold | "illustrative cases picked by rule" | "typical", "random" |
+| 15 | Tmax>6 s region 157 mL vs 32 mL final lesion | Cell 4 | DESCRIPTIVE | "consistent with tissue saved by treatment (cause untested)" | "the rule is wrong", or proof of the cause |
+| 16 | Four named patients (0012, 0145, 0066, 0095) | demo notebook, fold 0 | ILLUSTRATIVE. Picked by rule among the 30 fold-0 patients, not at random: best Dice (0095); median Dice (0012); worst miss among larger lesions (0066); smallest lesion (0145). 0012 sits at the fold-0 median, so its Dice (0.13) is near that fold's middle. At the pictured slice, its Tmax/probability map covers only part of the region while the expert outline extends into the blank area; cause not checked | "illustrative cases picked by rule" | "typical", "random", or a proved cause for the blank map |
 | 17 | Hemisphere AUC 0.96 to 0.98 | Week 2 | SANITY CHECK; easy by construction | "sanity check" | "evidence" |
 | 18 | Models share a ceiling because of the data and labels | none | HYPOTHESIS | "one reading, not tested" | "proves" |
 | 19 | User is an imaging/AI team with 50 to 150 labelled cases | none | HYPOTHESIS until a clinician or mentor confirms | "our intended user (hypothesis)" | "hospitals need this" |
 | 20 | 87% ischemic; costs nearly $56.2B (2019 to 2020) | CDC page snippets | SOURCED | cite CDC | |
-| 21 | 795,000 strokes per year | archived pages | dropped: not on the current CDC page | use: "About 87% of US strokes are ischemic; costs nearly $56.2 billion in 2019 to 2020 (CDC)."| quote it only after checking |
+| 21 | 795,000 strokes per year | archived pages | DROPPED: not used in this project | "About 87% of US strokes are ischemic, and stroke-related costs were nearly $56.2 billion in 2019 to 2020 (CDC)." | "795,000 strokes per year" in project materials |
 | 22 | Ghost core; threshold errors both ways | abstracts, one 22-patient poster | SOURCED, small studies | "documented in small studies" | "well established" |
 | 23 | ISLES'24 top Dice 0.285 | arXiv 2408.10966 | SOURCED context | "scale of the task" | "we are close to the winners" |
 | 24 | Novelty: question and control structure | literature passes 1 and 2 | NARROW | "extension, never first" | "first", "new algorithm" |
 | 25 | Reproducibility | fold 0 xgb reproduced exactly | PARTIAL: U-Net and whole pipeline not rerun in one go | "three-stage, partly verified" | "one-click" |
 | 26 | Brain mask is a box (2.7 L vs about 1.3 L) | Cell C | LIMITATION | state it | |
 
-**Pre-registered, in the strict sense, only:** the +/-0.05 margin, patient-level folds, identical tuning, mean patient Dice as the planned primary metric. Say "planned" or "exploratory" next to every other number.
+| 27 | Fold-0 demo size flag: Dice 0.195 on 30; 0.253 on 18 retained | Demo notebook, fold 0 | ILLUSTRATIVE, one fold, no interval | "Example only, after abstaining on the smallest predicted lesions" | "validated clinical trust flag" |
+| 28 | 47-patient study, ICC 0.64 to 0.69 | https://pmc.ncbi.nlm.nih.gov/articles/PMC9601142/ | SOURCED, checked; authors described poor absolute agreement | "Authors reported poor absolute agreement for their tested software/settings" | "all perfusion software has poor agreement" |
+| 29 | U-Net choice for follow-up training-size sweep | Main-run out-of-fold selection | LIMITATION, selection bias | "Chosen on the same cohort, potentially favors the U-Net" | "independently preselected" |
+| 30 | Fold-0 trust-flag threshold about 24 mL | Demo code: `R['vol_pred'].quantile(0.4)` | DESCRIPTIVE, fold-specific | "40th percentile of fold-0 predicted lesion volumes; about 24 mL" | "clinical cutoff" |
+| 31 | ISLES'24 data license | https://doi.org/10.1148/ryai.250603 | SOURCED; derived-table redistribution remains to be reviewed | "CC BY-NC-SA 4.0 for dataset; MIT for this project's code/documents" | "all repository data are MIT-licensed" |
+
+**Fixed in advance in the project statement (not publicly pre-registered):** the +/-0.05 margin, patient-level folds, identical tuning and mean patient Dice as the primary metric. Label other analyses planned, descriptive or exploratory as appropriate.
