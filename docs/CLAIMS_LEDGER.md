@@ -30,7 +30,6 @@ Every number a reader could ask about, where it came from, how strong it is, and
 | 24 | Novelty: question and control structure | literature passes 1 and 2 | NARROW | "extension, never first" | "first", "new algorithm" |
 | 25 | Reproducibility | fold 0 xgb reproduced exactly | PARTIAL: U-Net and whole pipeline not rerun in one go | "three-stage, partly verified" | "one-click" |
 | 26 | Brain mask is a box (2.7 L vs about 1.3 L) | Cell C | LIMITATION | state it | |
-
 | 27 | Fold-0 demo size flag: Dice 0.195 on 30; 0.253 on 18 retained | Demo notebook, fold 0 | ILLUSTRATIVE, one fold, no interval | "Example only, after abstaining on the smallest predicted lesions" | "validated clinical trust flag" |
 | 28 | 47-patient study, ICC 0.64 to 0.69 | https://pmc.ncbi.nlm.nih.gov/articles/PMC9601142/ | SOURCED, checked; authors described poor absolute agreement | "Authors reported poor absolute agreement for their tested software/settings" | "all perfusion software has poor agreement" |
 | 29 | U-Net choice for follow-up training-size sweep | Main-run out-of-fold selection | LIMITATION, selection bias | "Chosen on the same cohort, potentially favors the U-Net" | "independently preselected" |
