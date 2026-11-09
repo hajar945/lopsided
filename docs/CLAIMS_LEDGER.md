@@ -23,8 +23,8 @@ Every number a reader could ask about, where it came from, how strong it is, and
 | 17 | Hemisphere AUC 0.96 to 0.98 | Week 2 | SANITY CHECK; easy by construction | "sanity check" | "evidence" |
 | 18 | Models share a ceiling because of the data and labels | none | HYPOTHESIS | "one reading, not tested" | "proves" |
 | 19 | User is an imaging/AI team with 50 to 150 labelled cases | none | HYPOTHESIS until a clinician or mentor confirms | "our intended user (hypothesis)" | "hospitals need this" |
-| 20 | 87% ischemic; costs nearly $56.2B (2019 to 2020) | CDC page snippets | SOURCED | cite CDC | |
-| 21 | 795,000 strokes per year | archived pages | DROPPED: not used in this project | "About 87% of US strokes are ischemic, and stroke-related costs were nearly $56.2 billion in 2019 to 2020 (CDC)." | "795,000 strokes per year" in project materials |
+| 20 | 87% ischemic; costs nearly $56.2B (2019 to 2020) | [CDC Stroke Facts](https://www.cdc.gov/stroke/data-research/facts-stats/) (page dated Oct. 24, 2024; directly checked) | SOURCED | Cite CDC, specify the cost years; context, not project impact | Do not imply Lopsided reduced costs |
+| 21 | More than 795,000 strokes annually in the United States | [CDC Stroke Facts](https://www.cdc.gov/stroke/data-research/facts-stats/) (directly checked; page dated Oct. 24, 2024) | SOURCED: reinstated after direct verification, superseding the earlier snippet-only DROP | "CDC reports more than 795,000 U.S. strokes per year" with citation, as disease-burden context only | Presenting stroke incidence as a measured benefit or impact of this benchmark |
 | 22 | Ghost core; threshold errors both ways | abstracts, one 22-patient poster | SOURCED, small studies | "documented in small studies" | "well established" |
 | 23 | ISLES'24 top Dice 0.285 | arXiv 2408.10966 | SOURCED context | "scale of the task" | "we are close to the winners" |
 | 24 | Novelty: question and control structure | literature passes 1 and 2 | NARROW | "extension, never first" | "first", "new algorithm" |
