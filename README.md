@@ -61,7 +61,7 @@ Equivalence margin fixed in advance (not publicly pre-registered): +/-0.05 Dice.
 ## How to reproduce
 Workflow: Google Colab, Google Drive and GitHub. Public data and code are available without purchase; GPU runtime may require paid compute units.
 1. **Data.** Download the **preconverted Parquet mirror** from [Hugging Face: `hugging-science/isles24-stroke/data`](https://huggingface.co/datasets/hugging-science/isles24-stroke/tree/main/data), which publishes 149 patient-level files named `train-00000-of-00149.parquet` and so on. Place them in `MyDrive/isles_data/data/`. The original Zenodo ISLES'24 release uses NIfTI/BIDS, not Parquet, so those original NIfTI files cannot be used directly by the notebooks without conversion. The packaged Parquet mirror provides the intended input format without writing a converter. Cite the ISLES'24 dataset paper (doi 10.1148/ryai.250603) and acknowledge the mirror.
-2. **Support files.** Put `data_support/folds.csv` and `data_support/features_v2.csv` in `MyDrive/isles_data/`. The Week-2 notebook is committed at `notebooks/week2_features_eda.ipynb`. Redistribution of the derived `features_v2.csv` requires a dataset-license/provenance review.
+2. **Support files.** Put `data_support/folds.csv` and `data_support/features_v2.csv` in `MyDrive/isles_data/`. The Week-2 notebook is committed at `notebooks/week2_features_eda.ipynb`. See [data provenance, attribution, and licensing](data_support/README.md) for both derived CSVs and redistribution cautions.
 3. **Run `notebooks/lopsided_v4h.ipynb` in three stages** (only the U-Net needs a GPU):
    - *Stage 1, CPU runtime:* set `QUICK = False`, run everything. Caches the data, builds features, scores the rules and the interpretable model, runs its training-size curve and the failure map.
    - *Stage 2, T4 GPU runtime:* re-run from the top. Finished work reloads from checkpoints; only the U-Nets are new (several hours on a T4; the main comparison alone took about 2.4 hours).
@@ -105,7 +105,7 @@ One-patient demo (`DEMO_ID = sub-stroke0095`, the best fold-0 case): expert lesi
 ## Repository layout (current)
 ```
 notebooks/     lopsided_v4h.ipynb, lopsided_demo.ipynb, week2_features_eda.ipynb
-data_support/  folds.csv, features_v2.csv (derived-data license review pending)
+data_support/  folds.csv, features_v2.csv, README.md (data attribution/license)
 docs/          PROJECT_STATEMENT.md, CLAIMS_LEDGER.md, MODEL_CARD.md,
                PLAYBOOK.md, ADDON_CELLS.md
 figures/       failure_gallery.png, demo_patient.png
@@ -115,4 +115,4 @@ figures/       failure_gallery.png, demo_patient.png
 Drive paths in the notebooks (`MyDrive/isles_data/...`) are examples; adapt them to your own Drive.
 
 ## License and data
-Code and documents: MIT (see `LICENSE`). The ISLES'24 training data is licensed separately under **CC BY-NC-SA 4.0** (non-commercial and share-alike), per the dataset paper: https://doi.org/10.1148/ryai.250603. The repository does not include the original imaging data. Review the licensing/provenance of the derived `data_support/features_v2.csv` before further redistribution; do not assume MIT covers it. Cite the ISLES'24 dataset paper (doi 10.1148/ryai.250603).
+Original code and documentation: MIT (see `LICENSE`). The ISLES'24 training data is licensed separately under **CC BY-NC-SA 4.0** (non-commercial and share-alike), per the dataset paper: https://doi.org/10.1148/ryai.250603. The repository does not include the original imaging data. Both derived support tables need license/provenance and patient-level data review before further redistribution; MIT does not automatically cover them. See [data_support/README.md](data_support/README.md) for attribution, source links, modifications, and reuse cautions.
