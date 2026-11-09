@@ -6,3 +6,20 @@ data/
 __pycache__/
 *.pyc
 .DS_Store
+
+# Local secrets and environment files
+.env
+.env.*
+!.env.example
+credentials.json
+token.json
+*.pem
+
+# Generated model checkpoints, caches, and binary arrays
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.joblib
+*.npy
+*.npz
